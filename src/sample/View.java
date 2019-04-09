@@ -3,22 +3,23 @@ package sample;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 
-public class View extends Pane implements ModelListener{
+import java.util.ArrayList;
+
+public class View extends VBox implements ModelListener{
 
     Model model;
     InteractionModel iModel;
     float width, height;
-    Canvas canvas;
-    GraphicsContext gc;
+    ArrayList<ArrayList<Square>> board;
 
     public View(float width, float height) {
         this.width = width;
         this.height = height;
         setWidth(width);
         setHeight(height);
-        canvas = new Canvas(width, height);
-        gc = canvas.getGraphicsContext2D();
+        board = new ArrayList<>();
     }
 
     public void setModel(Model model) {
@@ -27,6 +28,10 @@ public class View extends Pane implements ModelListener{
 
     public void setiModel(InteractionModel iModel) {
         this.iModel = iModel;
+    }
+
+    private void drawSquares() {
+
     }
 
     public void draw() {

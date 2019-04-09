@@ -16,6 +16,8 @@ public class Main extends Application {
     public static final int WIDTH = 1366;
     private static final int VIEW_WIDTH = 768;
     private static final int SIDEPANE_WIDTH = 299;
+    public static Color LIGHT_SQUARE = Color.rgb(242, 196, 146);
+    public static Color DARK_SQUARE = Color.rgb(132,60,12);
 
     @Override
     public void start(Stage primaryStage) throws Exception{
