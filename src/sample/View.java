@@ -6,8 +6,8 @@ import javafx.scene.layout.Pane;
 
 public class View extends Pane {
 
-    Controller controller;
     Model model;
+    InteractionModel iModel;
     float width, height;
     Canvas canvas;
     GraphicsContext gc;
@@ -19,11 +19,11 @@ public class View extends Pane {
         gc = canvas.getGraphicsContext2D();
     }
 
-    public void setController(Controller controller) {
-        this.controller = controller;
-    }
-
     public void setModel(Model model) {
         this.model = model;
+    }
+
+    public void setiModel(InteractionModel iModel) {
+        this.iModel = iModel;
     }
 }
