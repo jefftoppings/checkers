@@ -19,7 +19,7 @@ public class SidePane extends VBox {
 
         setWidth(width);
         setHeight(height);
-        setBackground(new Background(new BackgroundFill(Color.LIGHTCORAL, CornerRadii.EMPTY, Insets.EMPTY)));
+        setBackground(new Background(new BackgroundFill(Color.STEELBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         Label name = new Label(playerName);
         name.setPrefWidth(width);

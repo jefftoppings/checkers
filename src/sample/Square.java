@@ -14,7 +14,7 @@ public class Square extends VBox {
     public Square(Color color) {
         this.color = color;
         setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
-        setWidth(96);
-        setHeight(96);
+        setPrefWidth(96);
+        setPrefHeight(96);
     }
 }
