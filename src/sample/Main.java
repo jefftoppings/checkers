@@ -1,18 +1,23 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
+    public static final int HEIGHT = 768;
+    public static final int WIDTH = 1366;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+
+        BorderPane root = new BorderPane();
+
+        primaryStage.setTitle("Jeff's Checkers");
+        primaryStage.setResizable(false);
+        primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));
         primaryStage.show();
     }
 
