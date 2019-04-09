@@ -12,6 +12,7 @@ public class Square extends VBox {
 
     Color color;
     int row, col;
+    Checker checker;
 
     public Square(Color color, int row, int col) {
         this.color = color;
