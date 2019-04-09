@@ -31,34 +31,36 @@ public class View extends VBox implements ModelListener{
 
     private void drawSquares() {
 
-        for (int i=0; i<4; i++) {
-            // construct even row
-            ArrayList<Square> evenRow = new ArrayList<>();
-            for (int k = 0; k < 8; k++) {
-                Square square;
-                if (k % 2 == 0) {
-                    square = new Square(Main.LIGHT_SQUARE);
-                } else {
-                    square = new Square(Main.DARK_SQUARE);
+        for (int i=0; i<8; i++) {
+            if (i % 2 == 0) {
+                // construct even row
+                ArrayList<Square> evenRow = new ArrayList<>();
+                for (int k = 0; k < 8; k++) {
+                    Square square;
+                    if (k % 2 == 0) {
+                        square = new Square(Main.LIGHT_SQUARE, i, k);
+                    } else {
+                        square = new Square(Main.DARK_SQUARE, i, k);
+                    }
+                    evenRow.add(square);
                 }
-                evenRow.add(square);
+                board.add(evenRow);
             }
 
-            // construct odd row
-            ArrayList<Square> oddRow = new ArrayList<>();
-            for (int j = 0; j < 8; j++) {
-                Square square;
-                if (j % 2 == 0) {
-                    square = new Square(Main.DARK_SQUARE);
-                } else {
-                    square = new Square(Main.LIGHT_SQUARE);
+            else {
+                // construct odd row
+                ArrayList<Square> oddRow = new ArrayList<>();
+                for (int j = 0; j < 8; j++) {
+                    Square square;
+                    if (j % 2 == 0) {
+                        square = new Square(Main.DARK_SQUARE, i, j);
+                    } else {
+                        square = new Square(Main.LIGHT_SQUARE, i, j);
+                    }
+                    oddRow.add(square);
                 }
-                oddRow.add(square);
+                board.add(oddRow);
             }
-
-            // add to board
-            board.add(evenRow);
-            board.add(oddRow);
         }
 
         // update children
