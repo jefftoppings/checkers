@@ -4,7 +4,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.layout.Pane;
 
-public class View extends Pane {
+public class View extends Pane implements ModelListener{
 
     Model model;
     InteractionModel iModel;
@@ -25,5 +25,14 @@ public class View extends Pane {
 
     public void setiModel(InteractionModel iModel) {
         this.iModel = iModel;
+    }
+
+    public void draw() {
+
+    }
+
+    @Override
+    public void modelChanged() {
+        draw();
     }
 }
