@@ -15,6 +15,8 @@ public class Main extends Application {
 
         BorderPane root = new BorderPane();
 
+        // set up references
+
         primaryStage.setTitle("Jeff's Checkers");
         primaryStage.setResizable(false);
         primaryStage.setScene(new Scene(root, WIDTH, HEIGHT));
