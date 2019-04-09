@@ -15,6 +15,8 @@ public class View extends Pane implements ModelListener{
     public View(float width, float height) {
         this.width = width;
         this.height = height;
+        setWidth(width);
+        setHeight(height);
         canvas = new Canvas(width, height);
         gc = canvas.getGraphicsContext2D();
     }
