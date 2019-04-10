@@ -42,11 +42,15 @@ public class Checker extends ImageView {
                     this.setImage(image);
                 }
                 state = State.SELECTED;
+                square.view.iModel.selectedChecker = this;
+                square.view.drawSelected();
                 break;
 
             case SELECTED:
                 resetCircleColor();
                 state = State.READY;
+                square.view.iModel.selectedChecker = null;
+                square.view.redrawBoard();
                 break;
         }
     }

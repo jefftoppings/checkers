@@ -14,8 +14,10 @@ public class Square extends VBox {
     Color color;
     int row, col;
     Checker checker;
+    View view;
 
-    public Square(Color color, int row, int col) {
+    public Square(Color color, int row, int col, View view) {
+        this.view = view;
         this.color = color;
         this.row = row;
         this.col = col;
@@ -38,6 +40,7 @@ public class Square extends VBox {
 
     public void setChecker(String color) {
         assert color.equals("blue") || color.equals("red");
+        this.getChildren().clear();
         if (color.equals("blue")) {
             this.checker = new Checker("blue", this);
         }
@@ -54,5 +57,9 @@ public class Square extends VBox {
     public void removeChecker() {
         this.getChildren().removeAll();
         this.checker = null;
+    }
+
+    public boolean isEmpty() {
+        return this.checker == null;
     }
 }

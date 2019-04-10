@@ -2,6 +2,7 @@ package sample;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -22,10 +23,6 @@ public class View extends VBox implements ModelListener{
         initialCheckerLayout();
     }
 
-    public void setModel(GameManager model) {
-        this.model = model;
-    }
-
     public void setiModel(InteractionModel iModel) {
         this.iModel = iModel;
     }
@@ -39,10 +36,10 @@ public class View extends VBox implements ModelListener{
                 for (int k = 0; k < 8; k++) {
                     Square square;
                     if (k % 2 == 0) {
-                        square = new Square(Main.LIGHT_SQUARE, i, k);
+                        square = new Square(Main.LIGHT_SQUARE, i, k, this);
                         GameManager.lightSquares.add(square);
                     } else {
-                        square = new Square(Main.DARK_SQUARE, i, k);
+                        square = new Square(Main.DARK_SQUARE, i, k, this);
                     }
                     evenRow.add(square);
                 }
@@ -55,9 +52,9 @@ public class View extends VBox implements ModelListener{
                 for (int j = 0; j < 8; j++) {
                     Square square;
                     if (j % 2 == 0) {
-                        square = new Square(Main.DARK_SQUARE, i, j);
+                        square = new Square(Main.DARK_SQUARE, i, j, this);
                     } else {
-                        square = new Square(Main.LIGHT_SQUARE, i, j);
+                        square = new Square(Main.LIGHT_SQUARE, i, j, this);
                         GameManager.lightSquares.add(square);
                     }
                     oddRow.add(square);
@@ -118,5 +115,21 @@ public class View extends VBox implements ModelListener{
     @Override
     public void modelChanged() {
         draw();
+    }
+
+    public void drawSelected() {
+        // change color
+        iModel.populateValidMoves();
+        for (Square s : iModel.validMoves) {
+            s.setColor(Color.PURPLE);
+        }
+    }
+
+    public void redrawBoard() {
+        iModel.validMoves.clear();
+
+        for (Square s : GameManager.lightSquares) {
+            s.setColor(Main.LIGHT_SQUARE);
+        }
     }
 }

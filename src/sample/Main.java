@@ -27,8 +27,9 @@ public class Main extends Application {
         root.setBackground(new Background(new BackgroundFill(Color.LIGHTBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
         // add components
-        GameManager gameManager = new GameManager();
+        new GameManager();
         View view = new View(VIEW_WIDTH, HEIGHT);
+        InteractionModel iModel = new InteractionModel();
         SidePane leftPane = new SidePane(SIDEPANE_WIDTH, HEIGHT, "Player 1");
         SidePane rightPane = new SidePane(SIDEPANE_WIDTH, HEIGHT, "Player 2");
 
@@ -38,6 +39,7 @@ public class Main extends Application {
         root.setRight(rightPane);
 
         // set up references
+        view.setiModel(iModel);
 
         primaryStage.setTitle("Jeff's Checkers");
         primaryStage.setResizable(false);
