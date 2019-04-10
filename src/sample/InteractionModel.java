@@ -12,6 +12,7 @@ public class InteractionModel {
         validMoves = new ArrayList<>();
     }
 
+    @SuppressWarnings("ConstantConditions")
     public void populateValidMoves() {
         assert selectedChecker!= null;
 
@@ -43,34 +44,40 @@ public class InteractionModel {
 
         for (Square s : GameManager.lightSquares) {
 
-            if (upLeftRow >= 0 && upLeftCol >= 0) {
-                if (s.row == upLeftRow && s.col == upLeftCol) {
-                    if (s.isEmpty()) {
-                        upLeft = s;
+            // red moves left (eventually king too)
+            if (selectedChecker.color.equals("red")) {
+                if (upLeftRow >= 0 && upLeftCol >= 0) {
+                    if (s.row == upLeftRow && s.col == upLeftCol) {
+                        if (s.isEmpty()) {
+                            upLeft = s;
+                        }
+                    }
+                }
+
+                if (downLeftRow <= 7 && downLeftCol >= 0) {
+                    if (s.row == downLeftRow && s.col == downLeftCol) {
+                        if (s.isEmpty()) {
+                            downLeft = s;
+                        }
                     }
                 }
             }
 
-            if (downLeftRow  <= 7 && downLeftCol >= 0 ) {
-                if (s.row == downLeftRow && s.col == downLeftCol) {
-                    if (s.isEmpty()) {
-                        downLeft = s;
+            // blue moves right (eventually king too)
+            if (selectedChecker.color.equals("blue")) {
+                if (upRightRow >= 0 && upRightCol <= 7) {
+                    if (s.row == upRightRow && s.col == upRightCol) {
+                        if (s.isEmpty()) {
+                            upRight = s;
+                        }
                     }
                 }
-            }
 
-            if (upRightRow >= 0 && upRightCol <= 7) {
-                if (s.row == upRightRow && s.col == upRightCol) {
-                    if (s.isEmpty()) {
-                        upRight = s;
-                    }
-                }
-            }
-
-            if (downRightRow <= 7 && downRightCol <= 7) {
-                if (s.row == downRightRow && s.col == downRightCol) {
-                    if (s.isEmpty()) {
-                        downRight = s;
+                if (downRightRow <= 7 && downRightCol <= 7) {
+                    if (s.row == downRightRow && s.col == downRightCol) {
+                        if (s.isEmpty()) {
+                            downRight = s;
+                        }
                     }
                 }
             }
