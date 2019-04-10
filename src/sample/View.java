@@ -40,6 +40,7 @@ public class View extends VBox implements ModelListener{
                     Square square;
                     if (k % 2 == 0) {
                         square = new Square(Main.LIGHT_SQUARE, i, k);
+                        GameManager.lightSquares.add(square);
                     } else {
                         square = new Square(Main.DARK_SQUARE, i, k);
                     }
@@ -57,6 +58,7 @@ public class View extends VBox implements ModelListener{
                         square = new Square(Main.DARK_SQUARE, i, j);
                     } else {
                         square = new Square(Main.LIGHT_SQUARE, i, j);
+                        GameManager.lightSquares.add(square);
                     }
                     oddRow.add(square);
                 }
@@ -88,15 +90,22 @@ public class View extends VBox implements ModelListener{
                 // even row
                 // 0, 2, 6
                 board.get(i).get(0).setChecker("blue");
+                GameManager.blueCheckers.add(board.get(i).get(0).getChecker());
                 board.get(i).get(2).setChecker("blue");
+                GameManager.blueCheckers.add(board.get(i).get(2).getChecker());
                 board.get(i).get(6).setChecker("red");
+                GameManager.redCheckers.add(board.get(i).get(6).getChecker());
+
             }
             else {
                 // odd row
                 // 1, 5, 7
                 board.get(i).get(1).setChecker("blue");
+                GameManager.blueCheckers.add(board.get(i).get(1).getChecker());
                 board.get(i).get(5).setChecker("red");
+                GameManager.redCheckers.add(board.get(i).get(5).getChecker());
                 board.get(i).get(7).setChecker("red");
+                GameManager.redCheckers.add(board.get(i).get(7).getChecker());
             }
         }
     }
