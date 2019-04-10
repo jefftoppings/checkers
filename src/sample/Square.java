@@ -22,16 +22,25 @@ public class Square extends VBox {
         this.row = row;
         this.col = col;
         this.checker = null;
-//        this.setOnMouseClicked(this::handleClicked);
+        this.setOnMouseClicked(this::handleClicked);
         setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         setPrefWidth(96);
         setPrefHeight(96);
         setAlignment(Pos.CENTER);
     }
 
-//    private void handleClicked(MouseEvent mouseEvent) {
-//        System.out.println("Clicked - Row: " + row + " Col: " + col);
-//    }
+    private void handleClicked(MouseEvent mouseEvent) {
+        if (view.iModel.validMoves.contains(this)) {
+            System.out.println("Clicked - Row: " + row + " Col: " + col);
+
+            Checker selected = view.iModel.selectedChecker;
+            selected.square.getChildren().clear();
+            selected.square = this;
+            selected.square.getChildren().add(selected);
+            GameManager.deselectAll();
+            view.redrawBoard();
+        }
+    }
 
     public void setColor(Color color) {
         this.color = color;
