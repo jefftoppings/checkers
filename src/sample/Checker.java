@@ -9,7 +9,7 @@ public class Checker extends ImageView {
     Image image;
     String color;
     Square square;
-    private enum State {
+    protected enum State {
             SELECTED, READY, DRAGGING
     }
     State state;
@@ -32,6 +32,7 @@ public class Checker extends ImageView {
     private void handleClicked(MouseEvent mouseEvent) {
         switch (state) {
             case READY:
+                GameManager.deselectAll();
                 if (color.equals("blue")) {
                     image = new Image("/graphics/blueCircleSelected.png");
                     this.setImage(image);

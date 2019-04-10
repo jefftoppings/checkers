@@ -1,5 +1,7 @@
 package sample;
 
+import javafx.scene.image.Image;
+
 import java.util.ArrayList;
 
 public class GameManager {
@@ -16,5 +18,22 @@ public class GameManager {
 
     public static void initializeGame() {
 
+    }
+
+    public static void deselectAll() {
+        for (Checker c : redCheckers) {
+            if (c.state != Checker.State.READY) {
+                c.state = Checker.State.READY;
+                c.image = new Image("/graphics/redCircle.png");
+                c.setImage(c.image);
+            }
+        }
+        for (Checker c : blueCheckers) {
+            if (c.state != Checker.State.READY) {
+                c.state = Checker.State.READY;
+                c.image = new Image("/graphics/blueCircle.png");
+                c.setImage(c.image);
+            }
+        }
     }
 }
