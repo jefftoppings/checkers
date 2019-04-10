@@ -90,50 +90,6 @@ public class InteractionModel {
             validMoves.add(downRight);
         }
 
-//        for (Square s : GameManager.lightSquares) {
-//
-//            // TODO this isn't populating correctly
-//
-//            if (selectedChecker.color.equals("red")) {
-//                // left one, up one
-//                if ((s.row - 1 == row) && (s.col - 1 == col)) {
-//                    if (!(s.row - 1 < 0 || s.row > 7 || s.col - 1 < 0 || s.col > 7)) {
-//                        // index in bounds
-//                        if (s.isEmpty()) {
-//                            validMoves.add(s);
-//                        }
-//                    }
-//                }
-//                // left one, down one
-//                if ((s.row + 1 == row) && (s.col - 1 == col)) {
-//                    if (!(s.row - 1 < 0 || s.row > 7 || s.col - 1 < 0 || s.col > 7)) {
-//                        // index in bounds
-//                        if (s.isEmpty()) {
-//                            validMoves.add(s);
-//                        }
-//                    }
-//                }
-//            } else {
-//                // right one, up one
-//                if ((s.row - 1 == row) && (s.col + 1 == col)) {
-//                    if (!(s.row - 1 < 0 || s.row > 7 || s.col - 1 < 0 || s.col > 7)) {
-//                        // index in bounds
-//                        if (s.isEmpty()) {
-//                            validMoves.add(s);
-//                        }
-//                    }
-//                }
-//                // right one, down one
-//                if ((s.row + 1 == row) && (s.col + 1 == col)) {
-//                    if (!(s.row - 1 < 0 || s.row > 7 || s.col - 1 < 0 || s.col > 7)) {
-//                        // index in bounds
-//                        if (s.isEmpty()) {
-//                            validMoves.add(s);
-//                        }
-//                    }
-//                }
-//            }
-//        }
     }
 
 }

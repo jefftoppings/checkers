@@ -43,6 +43,7 @@ public class Checker extends ImageView {
                 }
                 state = State.SELECTED;
                 square.view.iModel.selectedChecker = this;
+                square.view.redrawBoard();
                 square.view.drawSelected();
                 break;
 
