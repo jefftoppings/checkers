@@ -18,6 +18,8 @@ public class Main extends Application {
     private static final int SIDEPANE_WIDTH = 299;
     public static Color LIGHT_SQUARE = Color.rgb(242, 196, 146);
     public static Color DARK_SQUARE = Color.rgb(132,60,12);
+    public static Color ORANGE_CHECKER = Color.ORANGERED;
+    public static Color PURPLE_CHECKER = Color.PURPLE;
 
     @Override
     public void start(Stage primaryStage) throws Exception{

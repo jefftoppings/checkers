@@ -19,6 +19,7 @@ public class View extends VBox implements ModelListener{
         setHeight(height);
         board = new ArrayList<>();
         drawSquares();
+        initialCheckerLayout();
     }
 
     public void setModel(Model model) {
@@ -80,6 +81,26 @@ public class View extends VBox implements ModelListener{
             getChildren().add(row);
         }
     }
+
+    private void initialCheckerLayout() {
+        for (int i=0; i<8; i++) {
+            if (i % 2 == 0) {
+                // even row
+                // 0, 2, 6
+                board.get(i).get(0).setChecker("blue");
+                board.get(i).get(2).setChecker("blue");
+                board.get(i).get(6).setChecker("blue");
+            }
+            else {
+                // odd row
+                // 1, 5, 7
+                board.get(i).get(1).setChecker("red");
+                board.get(i).get(5).setChecker("red");
+                board.get(i).get(7).setChecker("red");
+            }
+        }
+    }
+
 
     public void draw() {
 

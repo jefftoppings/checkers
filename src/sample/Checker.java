@@ -1,32 +1,26 @@
 package sample;
 
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
-public class Checker extends Pane {
+public class Checker extends ImageView {
 
-    Color color;
-    Canvas canvas;
-    GraphicsContext gc;
-    int width = 96, height = 96;
+    Image image;
+    String color;
 
-    public Checker(Color color) {
+    public Checker(String color) {
+
         this.color = color;
-        this.canvas = new Canvas(width,height);
-        this.gc = canvas.getGraphicsContext2D();
-        setWidth(96);
-        setHeight(96);
-        setPrefWidth(96);
-        setPrefHeight(96);
-        draw();
+        image = new Image("/graphics/" + color + "Circle.png");
+        setImage(image);
+        this.setX(10);
+        this.setY(10);
+        this.setFitWidth(76);
+        this.setFitHeight(76);
+        this.setPreserveRatio(true);
     }
 
-    private void draw() {
-        gc.clearRect(0,0, width, height);
-
-        gc.setFill(color);
-        gc.fillOval(10,10,86,86);
+    public String getColor() {
+        return color;
     }
 }
