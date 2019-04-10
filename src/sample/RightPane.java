@@ -7,27 +7,26 @@ import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
-public class SidePane extends VBox {
+public class RightPane extends VBox {
 
     float width, height;
-    String playerName;
 
-    public SidePane(float width, float height, String playerName) {
+    public RightPane(float width, float height) {
         this.width = width;
         this.height = height;
-        this.playerName = playerName;
 
         setWidth(width);
         setHeight(height);
         setBackground(new Background(new BackgroundFill(Color.STEELBLUE, CornerRadii.EMPTY, Insets.EMPTY)));
 
-        Label name = new Label(playerName);
-        name.setPrefWidth(width);
-        name.setPrefHeight(30);
-        name.setFont(new Font("Verdana", 24));
-        name.setTextFill(Color.WHITE);
-        name.setAlignment(Pos.CENTER);
 
-        getChildren().add(name);
+        Label title = new Label("");
+        title.setPrefWidth(width);
+        title.setPrefHeight(30);
+        title.setFont(new Font("Verdana", 24));
+        title.setTextFill(Color.WHITE);
+        title.setAlignment(Pos.CENTER);
+
+        getChildren().add(title);
     }
 }

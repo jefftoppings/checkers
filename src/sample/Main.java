@@ -30,8 +30,8 @@ public class Main extends Application {
         new GameManager();
         View view = new View(VIEW_WIDTH, HEIGHT);
         InteractionModel iModel = new InteractionModel();
-        SidePane leftPane = new SidePane(SIDEPANE_WIDTH, HEIGHT, "Player 1");
-        SidePane rightPane = new SidePane(SIDEPANE_WIDTH, HEIGHT, "Player 2");
+        LeftPane leftPane = new LeftPane(SIDEPANE_WIDTH, HEIGHT);
+        RightPane rightPane = new RightPane(SIDEPANE_WIDTH, HEIGHT);
 
         // add components to root
         root.setCenter(view);

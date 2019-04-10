@@ -35,6 +35,7 @@ public class Square extends VBox {
 
             Checker selected = view.iModel.selectedChecker;
             selected.square.getChildren().clear();
+            selected.square.checker = null;
             selected.square = this;
             selected.square.getChildren().add(selected);
             GameManager.deselectAll();
