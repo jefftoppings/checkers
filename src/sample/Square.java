@@ -31,14 +31,18 @@ public class Square extends VBox {
 //        System.out.println("Clicked - Row: " + row + " Col: " + col);
 //    }
 
+    public void setColor(Color color) {
+        this.color = color;
+        setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
+    }
 
     public void setChecker(String color) {
         assert color.equals("blue") || color.equals("red");
         if (color.equals("blue")) {
-            this.checker = new Checker("blue");
+            this.checker = new Checker("blue", this);
         }
         else {
-            this.checker = new Checker("red");
+            this.checker = new Checker("red", this);
         }
         this.getChildren().add(this.checker);
     }
