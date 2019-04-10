@@ -45,6 +45,7 @@ public class Square extends VBox {
             GameManager.redTurn = !GameManager.redTurn;
             GameManager.blueTurn = !GameManager.blueTurn;
             LeftPane.updateTurnLabel();
+            RightPane.updateRemainingCheckers();
         }
     }
 
