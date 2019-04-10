@@ -47,6 +47,10 @@ public class Square extends VBox {
         this.getChildren().add(this.checker);
     }
 
+    public Checker getChecker() {
+        return checker;
+    }
+
     public void removeChecker() {
         this.getChildren().removeAll();
         this.checker = null;

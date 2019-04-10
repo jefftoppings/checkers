@@ -7,7 +7,7 @@ import java.util.ArrayList;
 
 public class View extends VBox implements ModelListener{
 
-    Model model;
+    GameManager model;
     InteractionModel iModel;
     float width, height;
     ArrayList<ArrayList<Square>> board;
@@ -22,7 +22,7 @@ public class View extends VBox implements ModelListener{
         initialCheckerLayout();
     }
 
-    public void setModel(Model model) {
+    public void setModel(GameManager model) {
         this.model = model;
     }
 

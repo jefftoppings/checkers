@@ -27,13 +27,11 @@ public class Checker extends ImageView {
         this.setFitHeight(76);
         this.setPreserveRatio(true);
         this.setOnMouseClicked(this::handleClicked);
-        this.setOnMouseDragged(this::handleDrag);
     }
 
     private void handleClicked(MouseEvent mouseEvent) {
         switch (state) {
             case READY:
-                System.out.println("entered ready");
                 if (color.equals("blue")) {
                     image = new Image("/graphics/blueCircleSelected.png");
                     this.setImage(image);
@@ -50,10 +48,6 @@ public class Checker extends ImageView {
                 state = State.READY;
                 break;
         }
-    }
-
-    private void handleDrag(MouseEvent mouseEvent) {
-//        switch (state)
     }
 
     private void resetCircleColor() {

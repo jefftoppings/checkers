@@ -30,6 +30,7 @@ public class Main extends Application {
         View view = new View(VIEW_WIDTH, HEIGHT);
         SidePane leftPane = new SidePane(SIDEPANE_WIDTH, HEIGHT, "Player 1");
         SidePane rightPane = new SidePane(SIDEPANE_WIDTH, HEIGHT, "Player 2");
+        GameManager model = new GameManager();
 
         // add components to root
         root.setCenter(view);
@@ -37,6 +38,7 @@ public class Main extends Application {
         root.setRight(rightPane);
 
         // set up references
+        view.setModel(model);
 
         primaryStage.setTitle("Jeff's Checkers");
         primaryStage.setResizable(false);
