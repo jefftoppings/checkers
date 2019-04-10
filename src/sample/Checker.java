@@ -9,13 +9,16 @@ public class Checker extends ImageView {
     Image image;
     String color;
     Square square;
-    boolean selected;
+    private enum State {
+            SELECTED, READY, DRAGGING
+    }
+    State state;
 
     public Checker(String color, Square square) {
 
         this.color = color;
         this.square = square;
-        this.selected = false;
+        this.state = State.READY;
         image = new Image("/graphics/" + color + "Circle.png");
         setImage(image);
         this.setX(10);
@@ -27,25 +30,30 @@ public class Checker extends ImageView {
         this.setOnMouseDragged(this::handleDrag);
     }
 
-    private void handleDrag(MouseEvent mouseEvent) {
+    private void handleClicked(MouseEvent mouseEvent) {
+        switch (state) {
+            case READY:
+                System.out.println("entered ready");
+                if (color.equals("blue")) {
+                    image = new Image("/graphics/blueCircleSelected.png");
+                    this.setImage(image);
+                }
+                else {
+                    image = new Image("/graphics/redCircleSelected.png");
+                    this.setImage(image);
+                }
+                state = State.SELECTED;
+                break;
+
+            case SELECTED:
+                resetCircleColor();
+                state = State.READY;
+                break;
+        }
     }
 
-    private void handleClicked(MouseEvent mouseEvent) {
-        if (!selected) {
-            selected = true;
-            if (color.equals("blue")) {
-                image = new Image("/graphics/blueCircleSelected.png");
-                this.setImage(image);
-            }
-            else {
-                image = new Image("/graphics/redCircleSelected.png");
-                this.setImage(image);
-            }
-        }
-        else {
-            selected = false;
-            resetCircleColor();
-        }
+    private void handleDrag(MouseEvent mouseEvent) {
+//        switch (state)
     }
 
     private void resetCircleColor() {
