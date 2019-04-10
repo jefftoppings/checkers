@@ -1,6 +1,7 @@
 package sample;
 
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
@@ -23,6 +24,7 @@ public class Square extends VBox {
         setBackground(new Background(new BackgroundFill(color, CornerRadii.EMPTY, Insets.EMPTY)));
         setPrefWidth(96);
         setPrefHeight(96);
+        setAlignment(Pos.CENTER);
     }
 
 //    private void handleClicked(MouseEvent mouseEvent) {

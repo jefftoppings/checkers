@@ -89,12 +89,12 @@ public class View extends VBox implements ModelListener{
                 // 0, 2, 6
                 board.get(i).get(0).setChecker("blue");
                 board.get(i).get(2).setChecker("blue");
-                board.get(i).get(6).setChecker("blue");
+                board.get(i).get(6).setChecker("red");
             }
             else {
                 // odd row
                 // 1, 5, 7
-                board.get(i).get(1).setChecker("red");
+                board.get(i).get(1).setChecker("blue");
                 board.get(i).get(5).setChecker("red");
                 board.get(i).get(7).setChecker("red");
             }
