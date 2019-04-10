@@ -10,6 +10,7 @@ public class GameManager {
     static ArrayList<Checker> redCheckers;
     static ArrayList<Checker> blueCheckers;
     static boolean redTurn = true;
+    static boolean blueTurn = false;
 
     public GameManager() {
         lightSquares = new ArrayList<>();

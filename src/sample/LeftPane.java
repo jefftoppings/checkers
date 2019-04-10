@@ -10,7 +10,7 @@ import javafx.scene.text.Font;
 public class LeftPane extends VBox {
 
     float width, height;
-    Label turnLabel;
+    static Label turnLabel;
 
     public LeftPane(float width, float height) {
         this.width = width;
@@ -33,7 +33,7 @@ public class LeftPane extends VBox {
 
     }
 
-    private void updateTurnLabel() {
+    public static void updateTurnLabel() {
         if (GameManager.redTurn) {
             turnLabel.setText("Red's Turn");
         }

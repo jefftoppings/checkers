@@ -34,10 +34,18 @@ public class Checker extends ImageView {
             case READY:
                 GameManager.deselectAll();
                 if (color.equals("blue")) {
+                    if (!GameManager.blueTurn) {
+                        System.out.println("Not Blue's Turn");
+                        break;
+                    }
                     image = new Image("/graphics/blueCircleSelected.png");
                     this.setImage(image);
                 }
-                else {
+                else if (color.equals("red")) {
+                    if (!GameManager.redTurn) {
+                        System.out.println("Not Red's Turn");
+                        break;
+                    }
                     image = new Image("/graphics/redCircleSelected.png");
                     this.setImage(image);
                 }

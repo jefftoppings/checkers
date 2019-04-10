@@ -40,6 +40,11 @@ public class Square extends VBox {
             selected.square.getChildren().add(selected);
             GameManager.deselectAll();
             view.redrawBoard();
+
+            // update who's turn it is
+            GameManager.redTurn = !GameManager.redTurn;
+            GameManager.blueTurn = !GameManager.blueTurn;
+            LeftPane.updateTurnLabel();
         }
     }
 
